@@ -1,4 +1,6 @@
+import framework.micronaut.FXMLLoaderCreator;
 import io.micronaut.context.ApplicationContext;
+import io.micronaut.inject.qualifiers.Qualifiers;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,10 +14,11 @@ public class HelloFX extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         ApplicationContext micronautContext = ApplicationContext.run();
+        micronautContext.registerSingleton(Stage.class, stage, Qualifiers.byName("firstStage"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("start/start.fxml"));
-        fxmlLoader.setControllerFactory(micronautContext::getBean); //  this asks Micronaut to create the Controller
-        Parent load = fxmlLoader.load();
+        FXMLLoaderCreator loaderCreator = micronautContext.getBean(FXMLLoaderCreator.class);
+        FXMLLoader fxmlLoader = loaderCreator.create();
+        Parent load = fxmlLoader.load(getClass().getResourceAsStream("firstController/first.fxml"));
         Scene scene = new Scene(load, 640, 480);
         stage.setScene(scene);
         stage.show();
