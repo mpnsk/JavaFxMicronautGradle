@@ -16,7 +16,7 @@ public class HelloFX extends Application {
         // start the dependency injection context
         ApplicationContext micronautContext = ApplicationContext.run();
 
-        // registers with qualifier you can get the original Stage with `@Inject @Named("first") Stage stage;`
+        // registers with qualifier so you can get the original Stage with `@Inject @Named("first") Stage stage;`
         micronautContext.registerSingleton(Stage.class, stage, Qualifiers.byName("first"));
 
         // gets an FXMLLoaderCreator like `@Inject FXMLLoaderCreator fxmlLoaderCreator` would do
