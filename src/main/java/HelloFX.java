@@ -13,9 +13,12 @@ public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        // start the dependency injection context
         ApplicationContext micronautContext = ApplicationContext.run();
-        micronautContext.registerSingleton(Stage.class, stage, Qualifiers.byName("firstStage"));
+        // so you can get the original Stage with `@Inject @Named("first") Stage stage;`
+        micronautContext.registerSingleton(Stage.class, stage, Qualifiers.byName("first"));
 
+        // this does what `@Inject FXMLLoaderCreator fxmlLoaderCreator` would do
         FXMLLoaderCreator loaderCreator = micronautContext.getBean(FXMLLoaderCreator.class);
         FXMLLoader fxmlLoader = loaderCreator.create();
         Parent load = fxmlLoader.load(getClass().getResourceAsStream("firstController/first.fxml"));
