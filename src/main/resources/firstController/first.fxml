@@ -7,7 +7,7 @@
    <children>
 
       <TextField fx:id="textField" />
-      <CheckBox fx:id="newWindowCheckbox" mnemonicParsing="false" text="new Window" GridPane.rowIndex="1" />
+      <CheckBox fx:id="reuseWindow" mnemonicParsing="false" text="reuse Window" GridPane.rowIndex="1" />
       <Button fx:id="button" mnemonicParsing="false" text="Button" GridPane.rowIndex="2" />
    </children>
    <columnConstraints>

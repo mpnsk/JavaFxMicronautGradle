@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class FirstController implements Initializable {
     public TextField textField;
     public Button button;
-    public CheckBox newWindowCheckbox;
+    public CheckBox reuseWindow;
 
     @Inject
     MyBean myBean;
@@ -52,10 +52,10 @@ public class FirstController implements Initializable {
             Parent load = fxmlLoader.load(getClass().getResourceAsStream("../secondController/second.fxml"));
 
             Stage stage;
-            if (newWindowCheckbox.isSelected())
-                stage = new Stage();
-            else
+            if (reuseWindow.isSelected())
                 stage = this.stage;
+            else
+                stage = new Stage();
 
             stage.setScene(new Scene(load, 300, 275));
             stage.show();
