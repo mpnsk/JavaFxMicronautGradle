@@ -20,22 +20,19 @@ import java.util.ResourceBundle;
 
 @Singleton
 public class FirstController implements Initializable {
-    public FirstController() {
-        System.out.println("FirstController constructor");
-    }
-
     public TextField textField;
     public Button button;
     public CheckBox reuseWindow;
-
     @Inject
     @Named("second")
     Stage secondStage;
-
     @Inject
     MicronautFXMLLoader micronautFxmlLoader;
-
     int windowCounter = 1;
+
+    public FirstController() {
+        System.out.println("FirstController constructor");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
