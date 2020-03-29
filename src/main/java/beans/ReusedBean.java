@@ -1,6 +1,4 @@
-package randomBeans;
-
-import io.micronaut.context.annotation.Prototype;
+package beans;
 
 import javax.inject.Singleton;
 

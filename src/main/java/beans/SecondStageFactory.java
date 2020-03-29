@@ -1,7 +1,6 @@
-package randomBeans;
+package beans;
 
 import io.micronaut.context.annotation.Factory;
-import io.micronaut.context.annotation.Prototype;
 import javafx.stage.Stage;
 
 import javax.inject.Named;

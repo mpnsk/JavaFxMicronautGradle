@@ -3,8 +3,8 @@ package controllers;
 import io.micronaut.context.annotation.Prototype;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import randomBeans.RecreatedBean;
-import randomBeans.ReusedBean;
+import beans.RecreatedBean;
+import beans.ReusedBean;
 
 import javax.inject.Inject;
 import java.net.URL;
