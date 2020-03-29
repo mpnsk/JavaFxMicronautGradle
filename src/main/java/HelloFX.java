@@ -21,9 +21,10 @@ public class HelloFX extends Application {
         // this does what `@Inject FXMLLoaderCreator fxmlLoaderCreator` would do
         FXMLLoaderCreator loaderCreator = micronautContext.getBean(FXMLLoaderCreator.class);
         FXMLLoader fxmlLoader = loaderCreator.create();
-        Parent load = fxmlLoader.load(getClass().getResourceAsStream("firstController/first.fxml"));
+        Parent load = fxmlLoader.load(getClass().getResourceAsStream("/firstController/first.fxml"));
         Scene scene = new Scene(load, 640, 480);
         stage.setScene(scene);
+        stage.setTitle("1st");
         stage.show();
     }
 

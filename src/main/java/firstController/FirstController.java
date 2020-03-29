@@ -21,6 +21,10 @@ import java.util.ResourceBundle;
 
 @Singleton
 public class FirstController implements Initializable {
+    public FirstController() {
+        System.out.println("FirstController constructor");
+    }
+
     public TextField textField;
     public Button button;
     public CheckBox reuseWindow;
@@ -34,6 +38,8 @@ public class FirstController implements Initializable {
 
     @Inject
     FXMLLoaderCreator fxmlLoaderCreator;
+
+    int windowCounter = 1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,13 +55,15 @@ public class FirstController implements Initializable {
     private void newScene() {
         try {
             FXMLLoader fxmlLoader = fxmlLoaderCreator.create();
-            Parent load = fxmlLoader.load(getClass().getResourceAsStream("../secondController/second.fxml"));
+            Parent load = fxmlLoader.load(getClass().getResourceAsStream("/secondController/second.fxml"));
 
             Stage stage;
-            if (reuseWindow.isSelected())
+            if (reuseWindow.isSelected()) {
                 stage = this.stage;
-            else
+            } else {
                 stage = new Stage();
+                stage.setTitle(String.valueOf(windowCounter++));
+            }
 
             stage.setScene(new Scene(load, 300, 275));
             stage.show();
