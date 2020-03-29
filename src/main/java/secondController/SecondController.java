@@ -4,20 +4,22 @@ import io.micronaut.context.annotation.Prototype;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import firstController.FirstController;
-import randomBeans.MyBean;
+import randomBeans.RecreatedBean;
+import randomBeans.ReusedBean;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@Singleton
+@Prototype
 public class SecondController implements Initializable {
     public Label label;
     @Inject
     FirstController controller;
     @Inject
-    MyBean myBean;
+    RecreatedBean recreatedBean;
+    @Inject
+    ReusedBean singletonBean;
 
     public SecondController() {
         System.out.println("SecondController constructor");
