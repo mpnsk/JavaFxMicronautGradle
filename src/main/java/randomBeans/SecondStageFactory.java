@@ -14,7 +14,7 @@ import javax.inject.Singleton;
 public class SecondStageFactory {
 
     @Named("second")
-    @Prototype
+    @Singleton
     public Stage getStage() {
         Stage stage = new Stage();
         stage.setTitle("2nd");

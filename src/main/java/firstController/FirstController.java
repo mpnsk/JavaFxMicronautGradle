@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import randomBeans.MyBean;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -31,7 +30,7 @@ public class FirstController implements Initializable {
 
     @Inject
     @Named("second")
-    Stage stage;
+    Stage secondStage;
 
     @Inject
     FXMLLoaderCreator fxmlLoaderCreator;
@@ -55,7 +54,7 @@ public class FirstController implements Initializable {
 
             Stage stage;
             if (reuseWindow.isSelected()) {
-                stage = this.stage;
+                stage = this.secondStage;
             } else {
                 stage = new Stage();
                 stage.setTitle(String.valueOf(windowCounter++));
