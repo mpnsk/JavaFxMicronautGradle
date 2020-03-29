@@ -5,7 +5,7 @@ import io.micronaut.context.annotation.Prototype;
 import javax.inject.Singleton;
 
 /**
- * Example of a random Ben that gets reused
+ * Example of a random Bean that gets reused
  */
 @Singleton
 public class ReusedBean {
