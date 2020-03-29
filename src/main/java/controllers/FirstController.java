@@ -1,4 +1,4 @@
-package firstController;
+package controllers;
 
 import framework.micronaut.MicronautFXMLLoader;
 import javafx.event.ActionEvent;
@@ -57,7 +57,7 @@ public class FirstController implements Initializable {
         }
         try {
             FXMLLoader fxmlLoader = micronautFxmlLoader.createLoader();
-            Parent load = fxmlLoader.load(getClass().getResourceAsStream("/secondController/second.fxml"));
+            Parent load = fxmlLoader.load(getClass().getResourceAsStream("/controllers/second.fxml"));
             stage.setScene(new Scene(load, 300, 275));
             stage.show();
         } catch (IOException e) {

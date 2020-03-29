@@ -1,9 +1,8 @@
-package secondController;
+package controllers;
 
 import io.micronaut.context.annotation.Prototype;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import firstController.FirstController;
 import randomBeans.RecreatedBean;
 import randomBeans.ReusedBean;
 
