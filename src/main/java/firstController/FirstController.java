@@ -1,6 +1,6 @@
 package firstController;
 
-import framework.micronaut.FXMLLoaderCreator;
+import framework.micronaut.MicronautFXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,7 +33,7 @@ public class FirstController implements Initializable {
     Stage secondStage;
 
     @Inject
-    FXMLLoaderCreator fxmlLoaderCreator;
+    MicronautFXMLLoader micronautFxmlLoader;
 
     int windowCounter = 1;
 
@@ -48,18 +48,16 @@ public class FirstController implements Initializable {
     }
 
     private void newScene() {
+        Stage stage;
+        if (reuseWindow.isSelected()) {
+            stage = this.secondStage;
+        } else {
+            stage = new Stage();
+            stage.setTitle(String.valueOf(windowCounter++));
+        }
         try {
-            FXMLLoader fxmlLoader = fxmlLoaderCreator.create();
+            FXMLLoader fxmlLoader = micronautFxmlLoader.createLoader();
             Parent load = fxmlLoader.load(getClass().getResourceAsStream("/secondController/second.fxml"));
-
-            Stage stage;
-            if (reuseWindow.isSelected()) {
-                stage = this.secondStage;
-            } else {
-                stage = new Stage();
-                stage.setTitle(String.valueOf(windowCounter++));
-            }
-
             stage.setScene(new Scene(load, 300, 275));
             stage.show();
         } catch (IOException e) {

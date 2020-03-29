@@ -11,11 +11,11 @@ import javax.inject.Singleton;
  * Creates a new FXMLLoader with the micronaut context already set to reduce repetition
  */
 @Singleton
-public class FXMLLoaderCreator {
+public class MicronautFXMLLoader {
     @Inject
     ApplicationContext micronautContext;
 
-    public FXMLLoader create(){
+    public FXMLLoader createLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(micronautContext::getBean); // this asks Micronaut to create the Controller
         return fxmlLoader;
