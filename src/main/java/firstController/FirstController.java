@@ -30,9 +30,6 @@ public class FirstController implements Initializable {
     public CheckBox reuseWindow;
 
     @Inject
-    MyBean myBean;
-
-    @Inject
     @Named("second")
     Stage stage;
 
@@ -44,7 +41,6 @@ public class FirstController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         button.setOnAction(this::buttonClick);
-        System.out.println("myBean = " + myBean);
     }
 
     private void buttonClick(ActionEvent event) {
